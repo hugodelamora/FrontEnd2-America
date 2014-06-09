@@ -1,12 +1,55 @@
 gris_oscuro = #444
 azul = #22BCE0
+naranja = #DD4f24
+gris_texto =#7A7A7A
 
+@font-face {
+	font-family: 'iconitos';
+	src:url('../fonts/icomoon.eot?glhdje');
+	src:url('../fonts/icomoon.eot?#iefixglhdje') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?glhdje') format('woff'),
+		url('../fonts/icomoon.ttf?glhdje') format('truetype'),
+		url('../fonts/icomoon.svg?glhdje#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+a
+	color naranja
 body
 	background #E8E8E8
 	color gris_oscuro
 	font-family Arial
 	font-size 16px
-	
+
+footer
+	background naranja
+	color rgba(255,255,255,0.5)
+	//bottom 0
+	//position absolute
+	position fixed
+	bottom 0
+	width 100%
+	padding 1em 0
+	h3
+		font-size 14px
+		text-align center	
+		strong
+			display block
+		.mejor
+			&:before
+			&:after
+				content " - "
+				
+
+header
+	background gris_oscuro
+	color white
+	padding 0.5em
+	position relative
+	overflow hidden
+	box-shadow 0 5px 0 rgba(0,0,0,0.2)
+	z-index 1
 	.logo
 		border-right 1px solid azul
 		width 60px
@@ -15,30 +58,211 @@ body
 			width 52px
 
 	.titular
-		margin 0 80px 0 60pxß
+		margin 0 60px 0 60px		
+			
+		.filtro
+			color azul
+			text-decoration none
+			font-weight bold
+			font-style italic
+			font-style 14px
+		.publicar
+			background naranja
+			color white
+			margin -0.5em 1em 0 0
+			padding 0.2em 0.5em
+			text-decoration none
+			font-style italic	
+			text-shadow 2px 1px 0px black
+			&:before
+				//border 1px solid white
+				display inline-block
+				margin 0 3px 0 0				
+				content "\e600"
+				font-family "iconitos"
+
 		.titulo
 			font-size 18px
 			font-weight normal
 			margin 0
 			padding 0
 	.usuario
+		position fixed
+		//position absolute
+		top 10px
+		right 10px
+		border 5
+		color white
+	
 		.avatar
+			
+			margin 0 1.1em 0 0
+			position relative
+			z-index 2
 			img
 				width 50px
 				border-radius 50%
 				
-		
-	
-header
-	background gris_oscuro
-	color white
-	padding 0.5em
+		.flechita
+			background naranja
+			display block
+			color white
+			text-align right
+			position absolute
+			width 80%
+			top 30%		
+			right 0 	
+			padding 2px
+			margin 0 0 0 0	
+			text-decoration none
+			&:after
+				font-family "iconitos"
+				content "\e602"					
+				text-shadow 1px 1px 0px black
 	
 nav
 	background azul
-	
+	border-left 15px solid white
+	position relative
+
+	&:before
+		content ""
+		border-bottom 20px solid transparent		
+		border-left 7px solid white
+		border-top 20px solid transparent
+		position absolute
+		top 0
+		left 0
+
+	.menu	
+		margin 0
+		overflow-x auto
+		height 40px
+		line-height 40px
+		white-space nowrap
+		padding 0
+		li
+			display inline-block
+			a
+				margin 0 0.2em
+				color white
+				display block
+				padding 0 0.2em
+				text-decoration none
 .left
 	float left
 	
 .right
 	float right
+
+.posts
+	
+	padding 0.5em
+	.post
+		margin-bottom 1em
+		background white
+		color gris_texto
+		box-shadow 2px 2px 10px rgba(black,0.5)
+		border-radius 0 0 0.5em 0.5em		
+		.descripcion
+			//border 1px solid red
+			color gris_texto
+			
+			
+
+			.detalles
+				
+				height 160px
+				margin-left 130px
+				.autor
+					margin 0.5em 0 2em 0
+				.fecha
+					margin 0 1em 0 0
+				.tag
+					background azul
+					color white
+					padding 0.2em 0.5em
+					border-radius 0.5em
+					text-decoration none
+					//font-weight bold
+				.titulo
+					font-size 18px
+					font-style italic
+					color gris_oscuro
+					margin 0
+					padding 0.5em 0.5em 0 0
+			.imagen
+				img
+					
+					vertical-align top
+					height 160px
+					width 120px
+
+		.acciones
+			border-top 3px solid azul
+			padding 0.5em
+			overflow hidden
+
+
+			.datos
+				.comentarios
+					background gris_oscuro
+					color white
+					padding 2px 5px
+					margin 0 1em 0 0
+					text-decoration none
+					border-radius 3px
+				.estrellita
+					text-decoration none
+
+					&:before
+						font-family "iconitos"
+						color #E0D561
+						content "\e601"
+															
+			.votos
+				.down
+				.up
+					text-decoration none
+					font-size 1.3em
+					font-family "iconitos"
+					vertical-align middle
+
+				.down
+					color red
+					&:before						
+						content "\e602"
+				.up
+					color green
+					&:after
+						content "\e603"
+
+
+@media screen and (min-width: 768px)
+	//body
+	//	background red
+
+	header
+		.titular
+			.publicar
+				position relative
+				padding-left 3em
+				
+				&:before
+					//color red
+					left 0
+					font-size 2.5em
+					top  -10px
+					position absolute
+
+	.posts
+		.post
+			width 48%
+			vertical-align top
+			display inline-block
+			&:nth-child(odd)
+				margin-right 2%
+			&:nth-child(even)		
+				background black
+			&:nth-child(3n)		
+				background yellow
