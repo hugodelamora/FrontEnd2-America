@@ -70,7 +70,7 @@
 						<a class="estrellita" href="#"></a>
 						
 					</div>
-				</div>
+				</div>				
 				
 			</article><article class="post">
 				<div class="descripcion">
@@ -109,7 +109,7 @@
 					</figure>
 					<div class="detalles">
 						<h2 class="titulo">
-							San Antonio Campeón de la NBA 2014
+							San Antonio Campeón de la NBA 2014, derrota de forma agonizante al Miami Heat
 						</h2>
 						<p class="autor">
 							por <a href="#">Diana Reyes</a> 
@@ -203,5 +203,25 @@
 				</span>
 			</h3>
 		</footer>
+		<script>
+			function darBienvenida(){alert("Bienvenido");}
+			function hacerAlgo(){console.log("Algo");}
+
+			$(function(){
+				$('.publicar')
+					.on('click',darBienvenida)
+					.on('click',function(){
+						console.log("test");
+
+					})	
+				$(window)//hasta que se carga la pag
+					.on('load',hacerAlgo)
+
+				$('.publicar')
+					.off('click',darBienvenida); 
+			});
+
+		</script>
+
 	</body>
 </html>

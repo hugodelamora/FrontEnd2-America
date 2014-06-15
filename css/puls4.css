@@ -81,7 +81,7 @@ header .titular .titulo {
   padding: 0;
 }
 header .usuario {
-  position: fixed;
+  position: absolute;
   top: 10px;
   right: 10px;
   border: 5;
@@ -90,7 +90,7 @@ header .usuario {
 header .usuario .avatar {
   margin: 0 1.1em 0 0;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 header .usuario .avatar img {
   width: 50px;
@@ -259,4 +259,7 @@ nav .menu li a {
   .posts .post:nth-child(3n) {
     background: #ff0;
   }
+}
+nav .menu li {
+  display: block;
 }
