@@ -1,7 +1,7 @@
-gris_oscuro = #444
 azul = #22BCE0
-naranja = #DD4f24
+gris_oscuro = #444
 gris_texto =#7A7A7A
+naranja = #DD4f24
 
 @font-face {
 	font-family: 'iconitos';
@@ -60,6 +60,7 @@ header
 	box-shadow 0 5px 0 rgba(0,0,0,0.2)
 	z-index 1
 	.logo
+		float left
 		border-right 1px solid azul
 		width 60px
 		
@@ -76,6 +77,7 @@ header
 			font-style italic
 			font-style 14px
 		.publicar
+			float right
 			background naranja
 			color white
 			margin -0.5em 1em 0 0
@@ -163,77 +165,47 @@ nav
 .right
 	float right
 
-.posts
-	
+.posts	
 	padding 0.5em
+	
 	.post
 		margin-bottom 1em
 		background white
 		color gris_texto
 		box-shadow 2px 2px 10px rgba(black,0.5)
 		border-radius 0 0 0.5em 0.5em		
-		.descripcion
-			//border 1px solid red
-			color gris_texto
-			
-			
-
-			.detalles
-				
-				height 160px
-				margin-left 130px
-				.autor
-					margin 0.5em 0 2em 0
-				.fecha
-					margin 0 1em 0 0
-				.tag
-					background azul
-					color white
-					padding 0.2em 0.5em
-					border-radius 0.5em
-					text-decoration none
-					//font-weight bold
-				.titulo
-					font-size 18px
-					font-style italic
-					color gris_oscuro
-					margin 0
-					padding 0.5em 0.5em 0 0
-			.imagen
-				img
-					
-					vertical-align top
-					height 160px
-					width 120px
-
+		
 		.acciones
 			border-top 3px solid azul
 			padding 0.5em
 			overflow hidden
 
-
 			.datos
+				float right
 				.comentarios
 					background gris_oscuro
-					color white
-					padding 2px 5px
-					margin 0 1em 0 0
-					text-decoration none
 					border-radius 3px
+					color white
+					margin 0 1em 0 0
+					padding 2px 5px
+					text-decoration none
+				
 				.estrellita
 					text-decoration none
 
 					&:before
-						font-family "iconitos"
 						color #E0D561
 						content "\e601"
+						font-family "iconitos"
 															
 			.votos
+				float left
+
 				.down
 				.up
-					text-decoration none
-					font-size 1.3em
 					font-family "iconitos"
+					font-size 1.3em
+					text-decoration none
 					vertical-align middle
 
 				.down
@@ -246,39 +218,123 @@ nav
 						content "\e603"
 
 
-@media screen and (min-width: 768px)
-	//body
-	//	background red
+		.descripcion
+			//border 1px solid red
+			color gris_texto
+						
+			.detalles				
+				height 160px
+				margin-left 130px
+				.autor
+					margin 0.5em 0 2em 0
+				.fecha
+					margin 0 1em 0 0
+					float right
+				.tag
+					background azul
+					color white
+					padding 0.2em 0.5em
+					border-radius 0.5em
+					text-decoration none
+					//font-weight bold
+				.titulo
+					color gris_oscuro
+					font-size 1.1em
+					font-style italic
+					margin 0
+					padding 0.5em 0.5em 0 0
+			
+			.imagen
+				display block						
+				float left
+
+				img					
+					height 160px
+					vertical-align top
+					width 120px
+
+
+
+/*Cuando es mayor a 768 hace esto DESKTOP*/
+
+@media screen and (min-width: 827px) 
+	body
+		background blue
 
 	header
 		.titular
 			.publicar
-				position relative
 				padding-left 3em
+				position relative
 				
 				&:before
-					//color red
-					left 0
+					left 0px
 					font-size 2.5em
-					top  -10px
 					position absolute
+					top -10px
 
-			.sizer
-				text-decoration none
-
-	.posts
+	.posts 
 		.post
+			display inline-block
 			width 48%
 			vertical-align top
-			display inline-block
 			&:nth-child(odd)
 				margin-right 2%
-			&:nth-child(even)		
-				background black
-			&:nth-child(3n)		
-				background yellow
-	
-nav	
-	.menu	
-		li
-			display block
+
+/*Entre 768 y 827 deja el default*/
+
+/*ipad Entre 480 y 768*/				
+@media screen and (min-width: 480px) and (max-width: 768px)
+	body
+		background green
+	.posts			
+		.post 
+			.descripcion
+				.detalles
+					.tag
+						margin-right 0px													
+					.fecha
+						margin-top 0px
+
+/*iphone menos de 480*/		
+@media  screen and (max-width:480px)
+	body
+		background red
+			
+	nav	
+		.menu	
+			li
+				display block
+
+	.posts
+			padding 0.5em
+
+			.post 
+				background #CCC
+				
+				.descripcion
+					color gris_texto
+					
+					.detalles
+						height 160px
+						margin-left 5px
+
+						.tag
+							float left
+							//margin-right 15px								
+							margin 0
+							position absolute								
+
+						.fecha
+							float left
+							margin-top 35px
+
+					.imagen		
+						display none				
+						float left
+
+						img					
+							height 15px
+							vertical-align top
+							width 05px
+

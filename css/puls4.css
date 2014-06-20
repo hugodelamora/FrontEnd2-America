@@ -53,6 +53,7 @@ header {
   z-index: 1;
 }
 header .logo {
+  float: left;
   border-right: 1px solid #22bce0;
   width: 60px;
 }
@@ -70,6 +71,7 @@ header .titular .filtro {
   font-style: 14px;
 }
 header .titular .publicar {
+  float: right;
   background: #dd4f24;
   color: #fff;
   margin: -0.5em 1em 0 0;
@@ -172,64 +174,38 @@ nav .menu li a {
   box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
   border-radius: 0 0 0.5em 0.5em;
 }
-.posts .post .descripcion {
-  color: #7a7a7a;
-}
-.posts .post .descripcion .detalles {
-  height: 160px;
-  margin-left: 130px;
-}
-.posts .post .descripcion .detalles .autor {
-  margin: 0.5em 0 2em 0;
-}
-.posts .post .descripcion .detalles .fecha {
-  margin: 0 1em 0 0;
-}
-.posts .post .descripcion .detalles .tag {
-  background: #22bce0;
-  color: #fff;
-  padding: 0.2em 0.5em;
-  border-radius: 0.5em;
-  text-decoration: none;
-}
-.posts .post .descripcion .detalles .titulo {
-  font-size: 18px;
-  font-style: italic;
-  color: #444;
-  margin: 0;
-  padding: 0.5em 0.5em 0 0;
-}
-.posts .post .descripcion .imagen img {
-  vertical-align: top;
-  height: 160px;
-  width: 120px;
-}
 .posts .post .acciones {
   border-top: 3px solid #22bce0;
   padding: 0.5em;
   overflow: hidden;
 }
+.posts .post .acciones .datos {
+  float: right;
+}
 .posts .post .acciones .datos .comentarios {
   background: #444;
-  color: #fff;
-  padding: 2px 5px;
-  margin: 0 1em 0 0;
-  text-decoration: none;
   border-radius: 3px;
+  color: #fff;
+  margin: 0 1em 0 0;
+  padding: 2px 5px;
+  text-decoration: none;
 }
 .posts .post .acciones .datos .estrellita {
   text-decoration: none;
 }
 .posts .post .acciones .datos .estrellita:before {
-  font-family: "iconitos";
   color: #e0d561;
   content: "\e601";
+  font-family: "iconitos";
+}
+.posts .post .acciones .votos {
+  float: left;
 }
 .posts .post .acciones .votos .down,
 .posts .post .acciones .votos .up {
-  text-decoration: none;
-  font-size: 1.3em;
   font-family: "iconitos";
+  font-size: 1.3em;
+  text-decoration: none;
   vertical-align: middle;
 }
 .posts .post .acciones .votos .down {
@@ -244,35 +220,117 @@ nav .menu li a {
 .posts .post .acciones .votos .up:after {
   content: "\e603";
 }
-@media screen and (min-width: 768px) {
+.posts .post .descripcion {
+  color: #7a7a7a;
+}
+.posts .post .descripcion .detalles {
+  height: 160px;
+  margin-left: 130px;
+}
+.posts .post .descripcion .detalles .autor {
+  margin: 0.5em 0 2em 0;
+}
+.posts .post .descripcion .detalles .fecha {
+  margin: 0 1em 0 0;
+  float: right;
+}
+.posts .post .descripcion .detalles .tag {
+  background: #22bce0;
+  color: #fff;
+  padding: 0.2em 0.5em;
+  border-radius: 0.5em;
+  text-decoration: none;
+}
+.posts .post .descripcion .detalles .titulo {
+  color: #444;
+  font-size: 1.1em;
+  font-style: italic;
+  margin: 0;
+  padding: 0.5em 0.5em 0 0;
+}
+.posts .post .descripcion .imagen {
+  display: block;
+  float: left;
+}
+.posts .post .descripcion .imagen img {
+  height: 160px;
+  vertical-align: top;
+  width: 120px;
+}
+/*Cuando es mayor a 768 hace esto DESKTOP*/
+@media screen and (min-width: 827px) {
+  body {
+    background: #00f;
+  }
   header .titular .publicar {
-    position: relative;
     padding-left: 3em;
+    position: relative;
   }
   header .titular .publicar:before {
-    left: 0;
+    left: 0px;
     font-size: 2.5em;
-    top: -10px;
     position: absolute;
-  }
-  header .titular .sizer {
-    text-decoration: none;
+    top: -10px;
   }
   .posts .post {
+    display: inline-block;
     width: 48%;
     vertical-align: top;
-    display: inline-block;
   }
   .posts .post:nth-child(odd) {
     margin-right: 2%;
   }
-  .posts .post:nth-child(even) {
-    background: #000;
+}
+/*Entre 768 y 827 deja el default*/
+/*ipad Entre 480 y 768*/
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  body {
+    background: #008000;
   }
-  .posts .post:nth-child(3n) {
-    background: #ff0;
+  .posts .post .descripcion .detalles .tag {
+    margin-right: 0px;
+  }
+  .posts .post .descripcion .detalles .fecha {
+    margin-top: 0px;
   }
 }
-nav .menu li {
-  display: block;
+/*iphone menos de 480*/
+@media screen and (max-width: 480px) {
+  body {
+    background: #f00;
+  }
+  nav .menu li {
+    display: block;
+  }
+  .posts {
+    padding: 0.5em;
+  }
+  .posts .post {
+    background: #ccc;
+  }
+  .posts .post .descripcion {
+    color: #7a7a7a;
+  }
+  .posts .post .descripcion .detalles {
+    height: 160px;
+    margin-left: 5px;
+  }
+  .posts .post .descripcion .detalles .tag {
+    float: left;
+    margin: 0;
+    position: absolute;
+  }
+  .posts .post .descripcion .detalles .fecha {
+    float: left;
+    margin-top: 35px;
+  }
+  .posts .post .descripcion .imagen {
+    display: none;
+    float: left;
+  }
+  .posts .post .descripcion .imagen img {
+    height: 15px;
+    vertical-align: top;
+    width: 5px;
+  }
 }
